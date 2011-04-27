@@ -24,7 +24,7 @@ $Id: version.h,v 1.20 2007/06/02 12:26:09 rasc Exp $
 
 
 #define DVBSNOOP_URL         "http://dvbsnoop.sourceforge.net/"
-#define DVBSNOOP_COPYRIGHT   "(c) 2001-2007  Rainer Scherg  (rasc)"
+#define DVBSNOOP_COPYRIGHT   "(c) 2001-2007  Rainer Scherg  (rasc)\n\nThis is a modified version of dvbsnoop, see https://github.com/cotdp/dvbsnoop for more info."
 
 
 #endif

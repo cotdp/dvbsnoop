@@ -44,6 +44,9 @@ int main(int argc, char **argv)
     -- init options and cmdline parsing
   */
 
+  setvbuf(stdout, NULL, _IOLBF, 0);
+  setlinebuf(stdout);
+
   init_PidMemory ();
 
 

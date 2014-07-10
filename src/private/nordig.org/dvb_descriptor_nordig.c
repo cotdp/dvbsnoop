@@ -45,8 +45,8 @@ void descriptor_PRIVATE_NordigORG_LogicChannelDescriptor (u_char *b)
 	for (i = 0; i < len; i += 4) {
 		unsigned int service_id = (b[i] << 8) | b[i + 1];
 		unsigned int visible_service_flag = (b[i + 2] >> 7) & 1;
-		unsigned int reserved = (b[i + 2] >> 6) & 1;
-		unsigned int logic_channel_number = ((b[i + 2] << 8) | b[i + 3]) & 0x3fff;
+		unsigned int reserved = (b[i + 2] >> 2) & 0x3f;
+		unsigned int logic_channel_number = ((b[i + 2] << 8) | b[i + 3]) & 0x03ff;
 
 		out_NL(4);
 		out_SW_NL(4, "service_id: ", service_id);

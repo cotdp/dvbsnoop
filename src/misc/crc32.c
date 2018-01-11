@@ -77,5 +77,6 @@ u_long crc32 (char *data, int len)
 	for (i=0; i<len; i++)
 		crc = (crc << 8) ^ crc_table[((crc >> 24) ^ *data++) & 0xff];
 
+	crc &= 0xffffffff;
 	return crc;
 }

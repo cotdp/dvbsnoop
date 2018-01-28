@@ -122,6 +122,7 @@ char *dsmccStrMHP_AIT_DescriptorTAG (u_int i)
      {  0x0E, 0x0E,  "delegated application descriptor" },
      {  0x0F, 0x0F,  "Plug-in descriptor" },
      {  0x10, 0x10,  "Application storage descriptor" },
+     {  0x15, 0x15,  "Simple application location descriptor" },     
      {  0x11, 0x5E,  "reserved to MHP" },
      {  0x5F, 0x5F,  "private data specifier descriptor" },
 #include "identifiers/mhpAITDescriptors.h"

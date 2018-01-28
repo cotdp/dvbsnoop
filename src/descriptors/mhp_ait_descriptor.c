@@ -80,6 +80,7 @@ int  descriptorMHP_AIT (u_char *b)
      case 0x0F:  descriptorMHP_AIT_plug_in (b); break;
      case 0x10:  descriptorMHP_AIT_application_storage (b); break;
      case 0x11:  descriptorMHP_AIT_ip_signalling (b); break;
+     case 0x15:  descriptorMHP_AIT_application_location (b); break;
 
      case 0x5F:  descriptorDVB_PrivateDataSpecifier (b); break;
 
@@ -708,6 +709,27 @@ void descriptorMHP_AIT_ip_signalling (u_char *b)
 
   outBit_S2x_NL (4,"platform_id: ",	b,  0, 24,
 		  	(char *(*)(u_long)) dsmccStrPlatform_ID);
+}
+
+
+
+
+
+/*
+ 0x15 -- Simple application location descriptor 
+ ETSI TS 102 809
+ */
+
+void descriptorMHP_AIT_application_location( u_char* b )
+{
+  int len;
+  // descriptor_tag	= b[0];
+  len	        = b[1];
+  
+  b +=2;
+
+  print_text_UTF8 (4, "location: ", b, len);
+
 }
 
 

@@ -25,7 +25,8 @@ $Id: nordig_org.c,v 1.3 2009/11/22 15:36:18 rhabarber1848 Exp $
 
 static PRIV_DESCR_ID_FUNC pdescriptors[] = {
 	{ 0x83, DVB_SI,   descriptor_PRIVATE_NordigORG_LogicChannelDescriptor },
-	{ 0xA0, DVB_SI,   descriptor_PRIVATE_NordigORG_ContentProtectionDescriptor },
+	{ 0x88, DVB_SI,   descriptor_PRIVATE_NordigORG_HDSimulcastLogicChannelDescriptor },
+	{ 0xA1, DVB_SI,   descriptor_PRIVATE_NordigORG_ContentProtectionDescriptor },
 	{ 0x00,	0,        NULL } // end of table  (id = 0x00, funct = NULL)
 };
 

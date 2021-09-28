@@ -36,7 +36,7 @@ void descriptor_PRIVATE_NordigORG_LogicChannelDescriptor (u_char *b)
 	unsigned int len = b[1];
 	unsigned int i;
 
-	out_nl(4, "--> NorDig Logic Channel Descriptor ");
+	out_nl(4, "--> NorDig Logic Channel Descriptor v1 ");
 
 	b += 2;
 
@@ -47,6 +47,39 @@ void descriptor_PRIVATE_NordigORG_LogicChannelDescriptor (u_char *b)
 		unsigned int visible_service_flag = (b[i + 2] >> 7) & 1;
 		unsigned int reserved = (b[i + 2] >> 6) & 1;
 		unsigned int logic_channel_number = ((b[i + 2] << 8) | b[i + 3]) & 0x3fff;
+
+		out_NL(4);
+		out_SW_NL(4, "service_id: ", service_id);
+		out_SB_NL(4, "visible_service_flag: ", visible_service_flag);
+		out_SB_NL(4, "reserved: ", reserved);
+		out_SW_NL(4, "logic_channel_number: ", logic_channel_number);
+	}
+
+	indent(-1);
+	out_NL(4);
+}
+
+/*
+   0x88  HD Simulcast Logical Channel Descriptor
+   DIGITALEUROPE (former EICTA) extension to IEC 62216-1 
+*/
+void descriptor_PRIVATE_NordigORG_HDSimulcastLogicChannelDescriptor (u_char *b)
+{
+	unsigned int tag = b[0];
+	unsigned int len = b[1];
+	unsigned int i;
+
+	out_nl(4, "--> HD Simulcast Logic Channel Descriptor ");
+
+	b += 2;
+
+	indent(+1);
+
+	for (i = 0; i < len; i += 4) {
+		unsigned int service_id = (b[i] << 8) | b[i + 1];
+		unsigned int visible_service_flag = (b[i + 2] >> 7) & 1;
+		unsigned int reserved = (b[i + 2] >> 2) & 0x3f;
+		unsigned int logic_channel_number = ((b[i + 2] << 8) | b[i + 3]) & 0x03ff;
 
 		out_NL(4);
 		out_SW_NL(4, "service_id: ", service_id);

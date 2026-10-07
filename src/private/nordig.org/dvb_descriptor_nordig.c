@@ -93,7 +93,7 @@ void descriptor_PRIVATE_NordigORG_HDSimulcastLogicChannelDescriptor (u_char *b)
 }
 
 /*
-   0xA0  Logic Channel Descriptor
+   0xA0  Content Protection Descriptor
    NorDig-Unified ver 2.0, 01.07.2008
 */
 void descriptor_PRIVATE_NordigORG_ContentProtectionDescriptor (u_char *b)
